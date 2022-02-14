@@ -1,0 +1,63 @@
+### Loops and statements
+
+Un loops es una forma de automatizar un proceso dentro de R. Para un loop es importante reconocer el numero de operaciones que deseo hacer.
+
+```{r loops, echo=FALSE, include= TRUE, message=TRUE}
+equipos<-c("equipo1","equipo2")
+for(value in equipos){
+  print(value)
+  
+}
+```
+
+
+
+```{r loops2, echo=FALSE, include= TRUE, message=TRUE}
+matches <- list(c(2,1),c(5,2),c(6,3))
+for (match in matches){
+    if (match[1] > match[2]){
+        print("Win")
+    } else {
+        print ("Lose")
+    }
+}
+#Ejemplo
+n=20
+x<-rnorm(n,50,3) #rnorm significa numero aleatorios normales
+x
+y <- rep(0,n)
+for( i in 1:n ){
+  y[i] <- log(x[i]) 
+}
+y
+# While
+i <- 1
+while (i < 6) {
+  print(i)
+  i = i+1
+}
+```
+
+### Funciones
+
+Las funciones en R son tratadas como cualquier otro objeto. Para crearlas utilizamos el comando _function_, el cual crea objetos de tipo function. Las funciones poseen 3 partes:
+
+- El cuerpo (body)
+
+- Los argumentos (formals): son una serie de valores (opcionales) que se pasan a la funcion, de modo que ciertas variables dentro de estas posean diferentes valores en cada llamada a la funcion.
+
+- El ambiente (environment)
+
+```{r funcion, echo=FALSE, include= TRUE, message=TRUE}
+z <- 1
+f <- function(x) 
+{
+  z <- 10
+  2 * z + g(x)
+}
+g <- function(x) 
+{
+  x * z
+}
+f(5)
+```
